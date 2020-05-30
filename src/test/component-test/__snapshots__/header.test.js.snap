@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Run header Compomnent 1`] = `
+<header>
+  <h1>
+    Budget-App
+  </h1>
+  <div
+    className="navlink"
+  >
+    <Navlink
+      link="/"
+    >
+      <strong>
+        Dashboard
+      </strong>
+    </Navlink>
+    <Navlink
+      link="/login"
+    >
+      <strong>
+        Login
+      </strong>
+    </Navlink>
+    <Navlink
+      link="/CreateExpenses"
+    >
+      <strong>
+        CreateExpenses
+      </strong>
+    </Navlink>
+    <Navlink
+      link="/edit/:id"
+    />
+  </div>
+</header>
+`;

@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expense List for empty data test validation 1`] = `
+<div>
+  <hr />
+  <ul>
+    No Expenses added yet
+  </ul>
+</div>
+`;
+
+exports[`expense List test validation 1`] = `
+<div>
+  <hr />
+  <ul>
+    <div>
+      <h4>
+        viewing 
+        3
+         expenses. Total $
+        2300
+      </h4>
+      <li
+        key="3"
+      >
+        <Link
+          to="/edit/3"
+        >
+           
+          curd
+           
+        </Link>
+          -
+        1000
+         - 
+        345600000
+        <button
+          onClick={[Function]}
+        >
+          Delete
+        </button>
+      </li>
+      <li
+        key="1"
+      >
+        <Link
+          to="/edit/1"
+        >
+           
+          rice
+           
+        </Link>
+          -
+        1200
+         - 
+        0
+        <button
+          onClick={[Function]}
+        >
+          Delete
+        </button>
+      </li>
+      <li
+        key="2"
+      >
+        <Link
+          to="/edit/2"
+        >
+           
+          milk
+           
+        </Link>
+          -
+        100
+         - 
+        -345600000
+        <button
+          onClick={[Function]}
+        >
+          Delete
+        </button>
+      </li>
+    </div>
+  </ul>
+</div>
+`;
