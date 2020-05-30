@@ -138,8 +138,6 @@ module.exports = {
           {
             test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/,/\.svg$/,/\.ico$/,/\.gif$/],
             loader: require.resolve('url-loader'),
-            exclude: /node_modules/,
-            use: ['file-loader?name=[name].[ext]'] ,
             options: {
               limit: 10000,
               name: 'static/media/[name].[hash:8].[ext]',

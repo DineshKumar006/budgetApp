@@ -4,7 +4,7 @@ import  Home from '../home/Home';
 import Login from '../login/login'
 import NavLink from './NavLink'
 import PageNotFound from '../404Page/404Page'
-import './navlink.css'
+ import './navlink.css'
 import AddExpenses from '../expenses/AddExpenses'
 import EditExpenses from '../expenses/EditExpense'
 
@@ -13,8 +13,8 @@ export const Header=()=>{
         <header>
             <h1>Budget-App</h1>
             
-            <div className="navlink">
-            <NavLink link='/'><strong>Dashboard</strong></NavLink>
+            <div >
+            <NavLink link='/' ><strong>Dashboard</strong></NavLink>
             <NavLink link='/login'><strong>Login</strong></NavLink>
             <NavLink  link="/CreateExpenses"><strong>CreateExpenses</strong></NavLink>
             <NavLink link="/edit/:id"></NavLink>
@@ -39,7 +39,7 @@ const Routes=(props)=>{
             <Route path='/login' exact={true}  component={Login}/>
             {/* <Route path='/login/:id' exact={true}  component={Login}/> */}
             <Route path="/edit/:id" exact={true} component={EditExpenses}/>
-            <Route  component={PageNotFound} exact={true} />
+            <Route  component={PageNotFound}  />
         </Switch>
     </div>
        

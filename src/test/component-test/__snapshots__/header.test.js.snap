@@ -5,9 +5,7 @@ exports[`Run header Compomnent 1`] = `
   <h1>
     Budget-App
   </h1>
-  <div
-    className="navlink"
-  >
+  <div>
     <Navlink
       link="/"
     >

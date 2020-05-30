@@ -4,6 +4,7 @@ import * as ExpenseActions from '../../ReduxStore/actions/ExpenseActions'
 import {visibleData} from '../../selector/visibleData'
 import moment from 'moment';
 import {Link} from 'react-router-dom'
+import numeral from 'numeral'
 
 export const ExpenseList =(props)=>{
 console.log(props.expensesData.length)
@@ -29,7 +30,8 @@ if(props.expensesData.length>0){
                 {data.map(curr=>{
                 return (<li key={curr.id}>
                     
-                  <Link to={`/edit/${curr.id}`}> {curr.description} </Link>  -{curr.amount} - {curr.createdAt}
+                  <Link to={`/edit/${curr.id}`}> {curr.description} </Link> 
+                  {numeral(curr.amount).format('$0,0.00')} - {moment(curr.createdAt).format('MMMM Do, YYYY')}
                     <button onClick={()=>props.removeExpenses(curr.id)}>Delete</button>
 
                 </li>)
