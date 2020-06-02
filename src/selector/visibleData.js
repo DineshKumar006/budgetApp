@@ -1,5 +1,5 @@
 import moment from 'moment'
-
+import axios from '../axios/axios'
 export const  visibleData=(expenses,filters)=>{
 
     if(expenses.length>0){
@@ -14,7 +14,7 @@ export const  visibleData=(expenses,filters)=>{
         const  endDateMatch= endDate  ?    endDate.isSameOrAfter(createdAtmoment,'day') :true
         const   textMatch=ele.description.includes(text)
         const amountMatch=ele.amount===amountSearch || isNaN(amountSearch)
-        console.log(startDateMatch,endDateMatch,textMatch,amountMatch)
+        // console.log(startDateMatch,endDateMatch,textMatch,amountMatch)
         return textMatch && startDateMatch && endDateMatch && amountMatch
     }).sort((a,b)=>{
         if(sortBy==='date'){
@@ -27,3 +27,12 @@ export const  visibleData=(expenses,filters)=>{
     })
 }
 }
+
+
+export const dataFromDB=async ()=>{
+    const response = await axios.get('/expenses.json');
+    const data=await response.data
+
+     return data
+  }
+ 

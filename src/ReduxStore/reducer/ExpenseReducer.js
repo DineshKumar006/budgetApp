@@ -9,10 +9,14 @@ const Expensesreducer=(oldState=initialState,actions)=>{
     switch(actions.type){
        
         case actionType.ADDEXPENSE:
-            const updatedExpense=oldState.expenses.concat(actions.expenses)
+            
+            const updatedExpense={
+                ...actions.expenses,
+                dbID:actions.dbID
+            }
         return {
             // ...oldState,
-            expenses:updatedExpense
+            expenses:oldState.expenses.concat(updatedExpense)
         }
 
         case actionType.REMOVE_EXPENSES:

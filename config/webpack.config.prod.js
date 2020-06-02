@@ -13,6 +13,8 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
 
+
+
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
 const publicPath = paths.servedPath;
@@ -49,6 +51,18 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
+
+
+// process.env.NODE_ENV=process.env.NODE_ENV ||'development'
+
+
+// if(process.env.NODE_ENV==='test'){
+//   require('dotenv').config({path:'.env.test'})
+// }else if(process.env.NODE_ENV==='development'){
+
+//   require('dotenv').config({path:'.env.development'})
+// }
+
 module.exports = {
   // Don't attempt to continue if there are any errors.
   bail: true,

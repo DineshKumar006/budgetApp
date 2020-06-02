@@ -2,7 +2,6 @@ import React,{Component} from 'react';
 import * as ExpensesActions from '../../ReduxStore/actions/ExpenseActions';
 import {connect} from 'react-redux'
 import Form from '../form/form'
-import moment from 'moment';
 
 
 export class AddExpenses extends Component{

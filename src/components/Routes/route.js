@@ -10,8 +10,12 @@ import EditExpenses from '../expenses/EditExpense'
 
 export const Header=()=>{
     return(
+        <React.Fragment>
+        <div>
+            <h1 className={'header'}>Budget App.</h1>
+        </div>
         <header>
-            <h1>Budget-App</h1>
+            
             
             <div >
             <NavLink link='/' ><strong>Dashboard</strong></NavLink>
@@ -22,6 +26,8 @@ export const Header=()=>{
            
 
         </header>
+        </React.Fragment>
+        
     )
 }
 

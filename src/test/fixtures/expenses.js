@@ -6,7 +6,8 @@ const expenses=[{
     description:'rice',
     amount:1200,
     createdAt:0,
-    note:''
+    note:'',
+    dbID:'-mkjidhdf'
 
 },
 {
@@ -14,7 +15,8 @@ const expenses=[{
     description:'milk',
     amount:100,
     createdAt:moment(0).subtract(4,'days').valueOf(),
-    note:''
+    note:'',
+    dbID:'-mkjid123hdf'
 
 },
 {
@@ -22,7 +24,8 @@ const expenses=[{
     description:'curd',
     amount:1000,
     createdAt:moment(0).add(4,'days').valueOf(),
-    note:''
+    note:'',
+    dbID:'-mkji876dhdf'
 
 }
 ]

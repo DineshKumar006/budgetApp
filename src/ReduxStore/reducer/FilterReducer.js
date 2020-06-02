@@ -50,12 +50,12 @@ const FilterReducer=(oldState=filterState,actions)=>{
             return{
                 ...oldState,
                 amountSearch:actions.amountSearch
-            }           
+            }
+            
+        default:return oldState   
 
     }
    
-
-    return oldState
 }
 
 export default FilterReducer

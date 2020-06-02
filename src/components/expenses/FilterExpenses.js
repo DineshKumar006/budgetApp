@@ -6,9 +6,9 @@ import {connect} from 'react-redux'
 import {DateRangePicker} from 'react-dates'
 import 'react-dates/lib/css/_datepicker.css';
 import 'react-dates/initialize';
+import { stat } from 'fs';
 
 
-import moment from 'moment'
 
 class FilterExpenses extends Component{
 
@@ -34,7 +34,7 @@ class FilterExpenses extends Component{
         
 const Data=visibleData(this.props.expensesData.expenses,this.props.filterData)
 
-console.log(Data)
+// console.log(Data)
 const changeHandler=(e)=>{
     const value=e.target.value;
     if(this.props.expensesData.expenses.length>0){
@@ -51,7 +51,7 @@ const amountChangeHandler=(e)=>{
 
 const sortHandler=(event)=>{
     //  console.log(event.target.value)
-    if(this.props.expensesData.expenses.length>0){
+    if(this.props.expensesData.expenses.length>0 || this.props.expensesDataFromDB.expenses.length>0){
         if(event.target.value==='amount'){
             this.props.sortByAmount()
         }else if(event.target.value==='date'){
@@ -106,7 +106,8 @@ const sortHandler=(event)=>{
 const mapStateToProps=(state)=>{
     return{
         expensesData:state.expenseReducer,
-        filterData:state.filterReducer
+        filterData:state.filterReducer,
+        expensesDataFromDB:state.fetchExpensesReducer
     }
 
 }
