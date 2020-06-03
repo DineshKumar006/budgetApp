@@ -8,7 +8,9 @@ const filterState={
     startDate: moment().startOf('month'),
     endDate: moment().endOf('month'),
     sortBy:'date', // date or rent
-    amountSearch:NaN
+    amountSearch:NaN,
+    amountFocus:false,
+    textFocus:false
 
 }
 
@@ -20,13 +22,16 @@ const FilterReducer=(oldState=filterState,actions)=>{
         case actionType.FILTER_EXPENSES_BY_NAME:
             return{
                 ...oldState,
-                text:actions.text
+                text:actions.text,
+                textFocus:true,
+                amountFocus:false
             }
 
         case actionType.SORT_BY_AMOUNT:
             return{
                 ...oldState,
-                sortBy:'amount'
+                sortBy:'amount',
+                
             }
             
         case actionType.SORT_BY_DATE:
@@ -49,7 +54,9 @@ const FilterReducer=(oldState=filterState,actions)=>{
         case actionType.SEARCH_BY_AMOUNT:
             return{
                 ...oldState,
-                amountSearch:actions.amountSearch
+                amountSearch:actions.amountSearch,
+                amountFocus:true,
+                textFocus:false,
             }
             
         default:return oldState   

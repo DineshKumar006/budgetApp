@@ -10,7 +10,7 @@ export class AddExpenses extends Component{
     submitExpenses=(value)=>{
        const {amount,description,createdAt,note}=value
         this.props.addExpenses(amount,description,createdAt,note)
-        this.props.history.push('/')
+        this.props.history.push('/dashboard')
     }
 
     render(){

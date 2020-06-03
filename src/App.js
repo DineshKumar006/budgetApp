@@ -5,14 +5,13 @@ import * as actions from './ReduxStore/actions/ExpenseActions'
 import {visibleData} from './selector/visibleData'
 import {connect} from 'react-redux';
 
-import {ReqAuth} from './hoc/HOC'
 import Routes from './components/Routes/route';
 
-import axios from './axios/axios'
+// import Login from './components/login/login'
 
-import database from './firebase/firebase'
 
-import SimpleTable from './utils/Table'
+// import {firebase} from './firebase/firebase'
+// import {history} from './index'
 
 class App extends Component {
 
@@ -20,7 +19,6 @@ class App extends Component {
       item:'pizza',
       amout:300
   }
-
   componentDidMount(){
   // database.ref('/newData').set({
   //   name:'zeee',
@@ -38,8 +36,6 @@ class App extends Component {
   //      id:'123'
      
   //   }
-
-
   // database.ref('/newData').update({
   //   name:'ranger',
   //   job:'Software developer'
@@ -65,26 +61,8 @@ class App extends Component {
 
   }
 
-  
+ 
   render() {
-     let id=0
-     this.props.expensesData.expenses?this.props.expensesData.expenses.map(ele=>{
-      // console.log(ele.id)
-      id=ele.id
-     }) :''
-const editData=()=>{
-  const updateData={
-      amount:99000,
-    description:'im dinesh'
-}
-
-this.props.editExpenses(id,updateData)
-}
-
-
-
-
-
 
 if(this.props.expensesData.expenses.length>0){
 
@@ -92,17 +70,13 @@ if(this.props.expensesData.expenses.length>0){
   console.log(data)
 }
 
+
+
+
     return (
       <div className="App">
-            <Routes/>
-                 <ReqAuth isAuth={true} info='this is auth details'/>
-
-
+          <Routes/> 
           </div>
-
-
-
-
     );
   }
 }
@@ -120,5 +94,24 @@ const mapDispatchToProps=(dispatch)=>{
     addExpenses:(amount)=>dispatch(actions.addExpenses({amount})),
   }
 }
+
+
+// firebase.auth().onAuthStateChanged((user)=>{
+//   if(user){
+//     // renderAuth()
+//     console.log(user.email)
+//     console.log(user.uid)
+//       console.log('Logged-in')
+//       if(history.location.pathname==='/'){
+//         history.push('/dashboard')
+//       }
+//   }else{
+//     // renderAuth()
+//        console.log('logged-out')
+//       history.push('/')
+
+//   }
+// });
+
 
 export default connect(mapStateToProps,mapDispatchToProps)(App);

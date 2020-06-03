@@ -2,55 +2,34 @@ import React from 'react';
 import {Route,Switch} from 'react-router-dom';
 import  Home from '../home/Home';
 import Login from '../login/login'
-import NavLink from './NavLink'
 import PageNotFound from '../404Page/404Page'
  import './navlink.css'
 import AddExpenses from '../expenses/AddExpenses'
 import EditExpenses from '../expenses/EditExpense'
+import PrivateRoute from './privateRoute'
 
-export const Header=()=>{
-    return(
-        <React.Fragment>
-        <div>
-            <h1 className={'header'}>Budget App.</h1>
-        </div>
-        <header>
-            
-            
-            <div >
-            <NavLink link='/' ><strong>Dashboard</strong></NavLink>
-            <NavLink link='/login'><strong>Login</strong></NavLink>
-            <NavLink  link="/CreateExpenses"><strong>CreateExpenses</strong></NavLink>
-            <NavLink link="/edit/:id"></NavLink>
-            </div>
-           
-
-        </header>
-        </React.Fragment>
-        
-    )
-}
-
+// import PublicRoute from './publicRoute'
 
 const Routes=(props)=>{
-    return(
-        <div>
 
-    <div>
-        <Header/>
+    return(
+      
+                 <div>          
+                        <Switch>
+                        <Route path='/' exact={true}  component={Login}/>
+                        <PrivateRoute path='/dashboard' exact={true}  component={Home}/>
+                        <PrivateRoute path='/CreateExpenses' exact={true}  component={AddExpenses}/>
+                        <PrivateRoute path="/edit/:id"  exact={true}  component={EditExpenses}/>
+                        <Route  component={PageNotFound}  />
+                        </Switch>
+                 </div>
+    
        
-        <Switch>
-            <Route path='/' exact={true}  component={Home}/>
-            <Route path='/CreateExpenses' exact={true} component={AddExpenses}/>
-            <Route path='/login' exact={true}  component={Login}/>
-            {/* <Route path='/login/:id' exact={true}  component={Login}/> */}
-            <Route path="/edit/:id" exact={true} component={EditExpenses}/>
-            <Route  component={PageNotFound}  />
-        </Switch>
-    </div>
-       
-        </div>
+    
     )
 }
+
+
+
 
 export default Routes

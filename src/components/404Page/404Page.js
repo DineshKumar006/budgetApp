@@ -7,7 +7,7 @@ const PageNotFound=(props)=>{
     return(
         <div>
             <h1>404! page not found</h1>
-            <NavLink to='/' >Go to dashboard</NavLink>
+            <NavLink to='/dashboard' >Go to dashboard</NavLink>
         </div>
     )
 }

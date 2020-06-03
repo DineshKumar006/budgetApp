@@ -1,12 +1,10 @@
 import React,{Component} from 'react';
-import  {visibleData} from '../../selector/visibleData';
 import * as FilterActions from '../../ReduxStore/actions/FilterActions'
 import * as ExpensesActions from '../../ReduxStore/actions/ExpenseActions'
 import {connect} from 'react-redux'
 import {DateRangePicker} from 'react-dates'
 import 'react-dates/lib/css/_datepicker.css';
 import 'react-dates/initialize';
-import { stat } from 'fs';
 
 
 
@@ -17,7 +15,7 @@ class FilterExpenses extends Component{
         this.state={
             // startDate:moment(),
             // endDate:moment(),
-            calenderFocused:null
+            calenderFocused:null,
             
         }
     }
@@ -29,25 +27,24 @@ class FilterExpenses extends Component{
         this.props.setStartDate(startDate)
         this.props.setEndDate(endDate)
     }
+     changeHandler=(e)=>{
 
+        const value=e.target.value;
+        if(this.props.expensesDataFromDB.expenses.length>0){
+            this.props.filterByName(value.toLowerCase())   
+        }
+    }
+     amountChangeHandler=(e)=>{
+        const amount= e.target.value;
+        if(this.props.expensesDataFromDB.expenses.length>0){
+            this.props.filterByAmount(parseInt(amount))
+        }
+    }
     render(){
         
-const Data=visibleData(this.props.expensesData.expenses,this.props.filterData)
 
-// console.log(Data)
-const changeHandler=(e)=>{
-    const value=e.target.value;
-    if(this.props.expensesData.expenses.length>0){
-        this.props.filterByName(value.toLowerCase())
-        
-    }
-}
-const amountChangeHandler=(e)=>{
-    const amount= e.target.value;
-    if(this.props.expensesData.expenses.length>0){
-        this.props.filterByAmount(parseInt(amount))
-    }
-}
+
+
 
 const sortHandler=(event)=>{
     //  console.log(event.target.value)
@@ -62,15 +59,17 @@ const sortHandler=(event)=>{
 
 }
 
-
+console.log(this.props.amountFocus,this.props.textFocus)
         return(
             <div>
                
                 <label>FilterExpenses</label>
                
-                <input type='number' placeholder='Amountsearch' onChange={amountChangeHandler}/>
+                <input type='number' placeholder='Amountsearch'  autoFocus={this.props.amountFocus}
+                 onChange={this.amountChangeHandler} value={this.props.filterData.amountSearch.toString()}/>
 
-                <input type='text' name="data" placeholder="Enter Filter" onChange={changeHandler} />
+                <input type='text' placeholder="Enter Filter" autoFocus={this.props.textFocus}
+                 onChange={this.changeHandler}  value={this.props.filterData.text}/>
 
                 <DateRangePicker
                 startDate={this.props.filterData.startDate}

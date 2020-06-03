@@ -14,9 +14,13 @@ export const AsyncfetchDataFomDB=(payload)=>{
 
 
 export const fetchDataFomDB= ()=>{
-    return  (dispatch)=>{
-        
-        database.ref('/expenses').on('value',snapshot=>{
+    
+    return  (dispatch,getState)=>{
+
+        const uid=getState().AuthReducer.uid
+        console.log(uid)
+
+        database.ref(`/expenses/users/${uid}`).on('value',snapshot=>{
             // console.log(snapshot.val())
             const val=snapshot.val();
             let fetchdata=[];

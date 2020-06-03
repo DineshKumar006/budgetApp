@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Form from '../form/form'
 import * as ExpenseActions from '../../ReduxStore/actions/ExpenseActions'
+// import {history} from '../../index'
 
 const EditExpense=(props)=>{
 
@@ -11,7 +12,7 @@ const EditExpense=(props)=>{
     //    console.log(expenseData.dbID)
        props.editExpenses(props.match.params.id,expenseData,props.expensesDataFromDB.dbID)
 
-       props.history.push('/')
+       props.history.push('/dashboard')
 
     }
     return(
